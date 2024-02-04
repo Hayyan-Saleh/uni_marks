@@ -39,6 +39,7 @@ dependencies:
   hive_flutter:
   salomon_bottom_bar: ^3.3.2
   flutter_launcher_icons: ^0.13.1
+  easy_search_bar: ^2.5.0
 dev_dependencies:
   hive_generator:
   build_runner:

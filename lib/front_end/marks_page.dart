@@ -53,14 +53,14 @@ class MarksPage extends StatelessWidget {
                                 TableCellVerticalAlignment.middle,
                             child: Padding(
                               padding: EdgeInsets.all(8.0),
-                              child: Text("Mark T"),
+                              child: Text("Mark P"),
                             )),
                         TableCell(
                             verticalAlignment:
                                 TableCellVerticalAlignment.middle,
                             child: Padding(
                               padding: EdgeInsets.all(8.0),
-                              child: Text("Mark P"),
+                              child: Text("Mark T"),
                             )),
                       ]),
                   ...List.generate(
@@ -75,7 +75,9 @@ class MarksPage extends StatelessWidget {
                                     child: Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: Text(
-                                          "${marksListDataBase.get(0).marks.elementAt(index).year}"),
+                                          "${marksListDataBase.get(0).marks.elementAt(index).year}",
+                                          style:
+                                              TextStyle(color: Colors.white)),
                                     )),
                                 TableCell(
                                     verticalAlignment:
@@ -83,7 +85,9 @@ class MarksPage extends StatelessWidget {
                                     child: Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: Text(
-                                          "${marksListDataBase.get(0).marks.elementAt(index).term}"),
+                                          "${marksListDataBase.get(0).marks.elementAt(index).term}",
+                                          style:
+                                              TextStyle(color: Colors.white)),
                                     )),
                                 TableCell(
                                     verticalAlignment:
@@ -91,7 +95,9 @@ class MarksPage extends StatelessWidget {
                                     child: Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: Text(
-                                          "${marksListDataBase.get(0).marks.elementAt(index).name}"),
+                                          "${marksListDataBase.get(0).marks.elementAt(index).name}",
+                                          style:
+                                              TextStyle(color: Colors.white)),
                                     )),
                                 TableCell(
                                     verticalAlignment:
@@ -99,7 +105,9 @@ class MarksPage extends StatelessWidget {
                                     child: Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: Text(
-                                          "${marksListDataBase.get(0).marks.elementAt(index).markTheoritical}"),
+                                          "${marksListDataBase.get(0).marks.elementAt(index).markPractical}",
+                                          style:
+                                              TextStyle(color: Colors.white)),
                                     )),
                                 TableCell(
                                     verticalAlignment:
@@ -107,7 +115,9 @@ class MarksPage extends StatelessWidget {
                                     child: Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: Text(
-                                          "${marksListDataBase.get(0).marks.elementAt(index).markPractical}"),
+                                          "${marksListDataBase.get(0).marks.elementAt(index).markTheoritical}",
+                                          style:
+                                              TextStyle(color: Colors.white)),
                                     )),
                               ]))
                 ],

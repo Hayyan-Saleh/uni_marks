@@ -1,13 +1,21 @@
+import 'package:easy_search_bar/easy_search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
+import 'package:uni_marks/data_base/boxes.dart';
+import 'package:uni_marks/domain/mark.dart';
 import 'package:uni_marks/front_end/home_page.dart';
 import 'package:uni_marks/front_end/marks_page.dart';
 import 'package:uni_marks/front_end/settings_page.dart';
+import 'package:uni_marks/front_end/show_searched_mark_window.dart';
 
 GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
 
 class MainWindow extends StatefulWidget {
-  const MainWindow({super.key});
+  const MainWindow(
+      {super.key,
+      required SlideTransition Function(dynamic context, dynamic animation,
+              dynamic secondaryAnimation, dynamic child)
+          transitionsBuilder});
 
   @override
   State<MainWindow> createState() => _MainWindowState();
@@ -30,19 +38,79 @@ class _MainWindowState extends State<MainWindow> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      appBar: AppBar(
-        elevation: 20,
-        centerTitle: true,
-        shadowColor: colors.elementAt(_currentIndex),
-        title: const Text(
+      appBar: EasySearchBar(
+        searchClearIconTheme: IconThemeData(color: Colors.red),
+        title: Center(
+            child: const Text(
           "Uni Marks",
-          style: TextStyle(
-              color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
-        ),
+          style: TextStyle(color: Colors.white),
+        )),
+        onSearch: (text) {
+          Mark? mark = marksListDataBase.get(0).getMarkByName(text);
+          if (mark != null) {
+            Navigator.of(context).pushReplacement(PageRouteBuilder(
+              pageBuilder: (context, animation, secondaryAnimation) =>
+                  ShowSearchedMark(
+                mark: mark,
+                transitionsBuilder:
+                    (context, animation, secondaryAnimation, child) {
+                  var begin = Offset(0.0, 1.0);
+                  var end = Offset.zero;
+                  var curve = Curves.ease;
+
+                  var tween = Tween(begin: begin, end: end)
+                      .chain(CurveTween(curve: curve));
+                  var offsetAnimation = animation.drive(tween);
+
+                  return SlideTransition(
+                    position: offsetAnimation,
+                    child: child,
+                  );
+                },
+              ),
+            ));
+          }
+        },
+        openOverlayOnSearch: true,
+        searchBackgroundColor: Colors.white,
+        suggestionBackgroundColor: Colors.white,
+        elevation: 20,
+        suggestionsElevation: 10,
+        iconTheme: IconThemeData(color: Colors.white),
         backgroundColor: colors.elementAt(_currentIndex),
+        searchHintText: "Search a mark ...",
+        onSuggestionTap: (selectedMarkName) {
+          Navigator.of(context).pushReplacement(PageRouteBuilder(
+            pageBuilder: (context, animation, secondaryAnimation) =>
+                ShowSearchedMark(
+              mark: marksListDataBase.get(0).getMarkByName(selectedMarkName),
+              transitionsBuilder:
+                  (context, animation, secondaryAnimation, child) {
+                var begin = Offset(0.0, 1.0);
+                var end = Offset.zero;
+                var curve = Curves.ease;
+
+                var tween = Tween(begin: begin, end: end)
+                    .chain(CurveTween(curve: curve));
+                var offsetAnimation = animation.drive(tween);
+
+                return SlideTransition(
+                  position: offsetAnimation,
+                  child: child,
+                );
+              },
+            ),
+          ));
+        },
+        suggestions: marksListDataBase.get(0) == null
+            ? []
+            : [...marksListDataBase.get(0).getMarksNamesList()],
       ),
       backgroundColor: Colors.grey,
-      body: pages.elementAt(_currentIndex),
+      body: Hero(
+        tag: "1",
+        child: pages.elementAt(_currentIndex),
+      ),
       bottomNavigationBar: SalomonBottomBar(
         currentIndex: _currentIndex,
         onTap: (i) => setState(() => _currentIndex = i),

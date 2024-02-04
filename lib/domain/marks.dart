@@ -20,6 +20,21 @@ class Marks {
     return sum / counter;
   }
 
+  List<String>? getMarksNamesList() {
+    List<String> marksNames = [];
+    for (Mark mark in marks) marksNames.add(mark.name);
+    return marksNames;
+  }
+
+  void sort() {
+    marks.sort((a, b) => a.year.compareTo(b.year));
+  }
+
+  Mark? getMarkByName(String name) {
+    for (Mark mark in marks) if (mark.name == name) return mark;
+    return null;
+  }
+
   double getYearTermAvg(int year, int term) {
     int sum = 0;
     int counter = 0;

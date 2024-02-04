@@ -8,6 +8,7 @@
 * **Calculate averages:** View your average marks for a specific year or year and term.
 * **User information:** Set your username and university name for personalized experience.
 * **Data persistence:** Securely store your marks and user information locally using Hive database.
+* **Search & Edit marks:** Search for a specific mark and edit your added marks, including its name, year, term and both theoretical and practical components.
 * **Clean and intuitive interface:** Navigate seamlessly between different sections using a bottom navigation bar.
 * **Multiple pages:** Dedicated pages for home, marks, and settings, each with their own functionalities.
 
@@ -28,7 +29,6 @@ We welcome contributions to improve Uni Marks. Feel free to fork the repository,
 
 ### Further Development:
 
-* Implement search functionality for marks.
 * Add charts and graphs for visualizing averages.
 * Allow export/import of data.
 * Integrate with university portals for automatic data fetching.

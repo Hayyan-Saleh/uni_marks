@@ -1,35 +1,47 @@
-## Uni Marks - A Flutter App for Managing University Marks
+## Uni Marks - A Powerful Flutter App for Academic Success (v1.2)
 
-**Uni Marks** is a cross-platform Flutter application designed to help students easily manage their university marks. It offers a convenient and user-friendly interface to track marks, calculate averages, and stay organized.
+**Uni Marks** is a cross-platform Flutter application that takes your academic management to the next level. This latest v1.2 release delivers enhanced performance, insightful statistics, and user-friendly improvements, all wrapped in a stylish dark theme.
 
-### Features:
+### Key Features:
 
-* **Track marks:** Add and edit your marks for individual subjects, including both theoretical and practical components.
-* **Calculate averages:** View your average marks for a specific year or year and term.
-* **User information:** Set your username and university name for personalized experience.
-* **Data persistence:** Securely store your marks and user information locally using Hive database.
-* **Search & Edit marks:** Search for a specific mark and edit your added marks, including its name, year, term and both theoretical and practical components.
-* **Clean and intuitive interface:** Navigate seamlessly between different sections using a bottom navigation bar.
-* **Multiple pages:** Dedicated pages for home, marks, and settings, each with their own functionalities.
+* **Dive Deeper into Stats:** Gain valuable insights with the new **Statistics** page, featuring:
+    * **Term-wise Progress Chart:** Visualize your academic trajectory with a clear line chart. ()
+    * **Top Performer:** Discover your highest-scoring mark (combined theoretical and practical) and its name. ()
+    * **Best Year & Term:** Identify your strongest academic periods based on average marks. ()
+* **Seamless Mark Management:**
+    * **Effortless Search:** Quickly find specific marks using keywords for any subject. ()
+    * **Refined Records:** Remove unwanted marks directly within the edit window. (️)
+    * **Automatic Sorting:** Maintain tidy organization with year (ascending) then term (ascending) sorting. (️)
+* **Enhanced User Experience:**
+    * **Stylish Dark Theme:** Immerse yourself in a comfortable and focused learning environment. () (Light theme not yet available.)
+    * **Improved App Responsiveness:** Enjoy smoother and faster performance. ()
+    * **Bug Fixes:** Resolved minor issues reported by users for a polished experience. ()
+* **Additional Features:**
+    * Track marks for individual subjects (theoretical and practical). ()
+    * Calculate average marks for specific years or terms. ()
+    * Set your username and university name for personalization. ()
+    * Securely store data locally using Hive database. (️)
+    * Navigate intuitively with a bottom navigation bar. ()
 
 ### Technologies Used:
 
-* **Flutter:** Cross-platform mobile app framework
-* **Hive:** Local database for persistent data storage
+* **Flutter:** Cross-platform mobile app framework ()
+* **Hive:** Local database for persistent data storage (️)
 
 ### Installation:
 
-1. Clone the repository.
-2. Run `flutter pub get` to download dependencies.
-3. Run `flutter run` to launch the app on your device/simulator.
+1. Clone the repository. (⬇️)
+2. Run `flutter pub get` to download dependencies. ()
+3. Run `flutter run` to launch the app on your device/simulator. ()
 
 ### Contributing:
 
-We welcome contributions to improve Uni Marks. Feel free to fork the repository, raise issues, or submit pull requests!
+We welcome your contributions to shape the future of Uni Marks! Fork the repository, raise issues, or submit pull requests. ()
 
-### Further Development:
+### Future Development:
 
-* Add charts and graphs for visualizing averages.
-* Allow export/import of data.
-* Integrate with university portals for automatic data fetching.
+* More interactive charts and graphs for visualizing data. ()
+* Data export/import functionality for flexibility. ()
+* Potential integration with university portals (under consideration). (❓)
 
+Join us and transform your academic journey with Uni Marks! ()

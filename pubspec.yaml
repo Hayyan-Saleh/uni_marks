@@ -40,15 +40,16 @@ dependencies:
   salomon_bottom_bar: ^3.3.2
   flutter_launcher_icons: ^0.13.1
   easy_search_bar: ^2.5.0
+  fl_chart: ^0.64.0
+  url_launcher: ^6.2.4
 dev_dependencies:
   hive_generator:
   build_runner:
-  flutter_launcher_icons: "^0.13.1"
 
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "assets//icon//books.png"
+  image_path: "assets//icon//second icon.jpg"
   min_sdk_android: 21
     
   flutter_test:

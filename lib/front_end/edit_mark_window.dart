@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:uni_marks/data_base/boxes.dart';
 import 'package:uni_marks/domain/mark.dart';
+import 'package:uni_marks/domain/marks.dart';
 import 'package:uni_marks/front_end/home_page.dart';
 import 'package:uni_marks/front_end/main_window.dart';
 
+// ignore: must_be_immutable
 class EditMarkWindow extends StatelessWidget {
   EditMarkWindow({
     super.key,
@@ -34,7 +36,7 @@ class EditMarkWindow extends StatelessWidget {
             backgroundColor: Color.fromARGB(255, 16, 201, 139),
           ),
           resizeToAvoidBottomInset: false,
-          backgroundColor: Colors.blueGrey,
+          backgroundColor: Color.fromRGBO(30, 52, 147, 0.612),
           body: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -78,8 +80,8 @@ class EditMarkWindow extends StatelessWidget {
                                                   width: 1),
                                               borderRadius:
                                                   BorderRadius.circular(20)),
-                                          backgroundColor: const Color.fromARGB(
-                                              255, 125, 125, 125),
+                                          backgroundColor:
+                                              Color.fromRGBO(44, 70, 187, 1),
                                           title: const Text(
                                             "Missing data inputs",
                                             style: TextStyle(
@@ -131,6 +133,7 @@ class EditMarkWindow extends StatelessWidget {
                                             markTheoriticalController.text));
                                 marksListDataBase.get(0).marks.remove(mark);
                                 marksListDataBase.get(0).marks.add(newMark);
+                                marksListDataBase.get(0).sort();
 
                                 ScaffoldMessenger.of(context)
                                     .showSnackBar(SnackBar(
@@ -169,7 +172,129 @@ class EditMarkWindow extends StatelessWidget {
                               }
                             },
                             text: "save Edited Mark to my marks",
-                            backgroundColor: Colors.purple),
+                            backgroundColor: Color.fromARGB(255, 20, 149, 106)),
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: CustomButton(
+                            onPressed: () {
+                              showDialog(
+                                  context: context,
+                                  builder: (context) => AlertDialog(
+                                        shape: RoundedRectangleBorder(
+                                            side: const BorderSide(
+                                                color: Colors.black, width: 1),
+                                            borderRadius:
+                                                BorderRadius.circular(20)),
+                                        backgroundColor:
+                                            Color.fromRGBO(44, 70, 187, 1),
+                                        title: Text(
+                                          "Deleting ${mark.name}",
+                                          style: TextStyle(
+                                              color: Colors.redAccent,
+                                              fontSize: 20),
+                                        ),
+                                        content: const Text(
+                                          "Are you sure you want to delete this mark ?",
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 18),
+                                        ),
+                                        actions: [
+                                          MaterialButton(
+                                            shape: RoundedRectangleBorder(
+                                                side: const BorderSide(
+                                                    color: Colors.black,
+                                                    width: 1),
+                                                borderRadius:
+                                                    BorderRadius.circular(20)),
+                                            onPressed: () async {
+                                              await marksListDataBase
+                                                  .get(0)
+                                                  .removeMark(mark);
+                                              Navigator.of(context)
+                                                  .pushAndRemoveUntil(
+                                                PageRouteBuilder(
+                                                  pageBuilder: (context,
+                                                          animation,
+                                                          secondaryAnimation) =>
+                                                      MainWindow(
+                                                    transitionsBuilder:
+                                                        (context,
+                                                            animation,
+                                                            secondaryAnimation,
+                                                            child) {
+                                                      var begin =
+                                                          Offset(0.0, 1.0);
+                                                      var end = Offset.zero;
+                                                      var curve = Curves.ease;
+
+                                                      var tween = Tween(
+                                                              begin: begin,
+                                                              end: end)
+                                                          .chain(CurveTween(
+                                                              curve: curve));
+                                                      var offsetAnimation =
+                                                          animation
+                                                              .drive(tween);
+
+                                                      return SlideTransition(
+                                                        position:
+                                                            offsetAnimation,
+                                                        child: child,
+                                                      );
+                                                    },
+                                                  ),
+                                                ),
+                                                (route) => false,
+                                              );
+                                              ScaffoldMessenger.of(context)
+                                                  .showSnackBar(SnackBar(
+                                                content: Text(
+                                                    "Successfully Removed ${mark.name} from your marks"),
+                                                duration:
+                                                    const Duration(seconds: 3),
+                                                backgroundColor:
+                                                    const Color.fromARGB(
+                                                        255, 0, 176, 6),
+                                              ));
+                                            },
+                                            color: Colors.green,
+                                            child: const Text(
+                                              "yes",
+                                              style: TextStyle(
+                                                  color: Colors.white),
+                                            ),
+                                          ),
+                                          MaterialButton(
+                                            shape: RoundedRectangleBorder(
+                                                side: const BorderSide(
+                                                    color: Colors.black,
+                                                    width: 1),
+                                                borderRadius:
+                                                    BorderRadius.circular(20)),
+                                            onPressed: () {
+                                              Navigator.of(context).pop();
+                                            },
+                                            color: Colors.red,
+                                            child: const Text(
+                                              "No",
+                                              style: TextStyle(
+                                                  color: Colors.white),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                  barrierDismissible: false);
+                            },
+                            text: "Delete this Mark from my marks",
+                            backgroundColor: Color.fromARGB(255, 149, 41, 20)),
                       ),
                     ),
                   ],

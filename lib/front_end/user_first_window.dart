@@ -12,14 +12,16 @@ class UserWindow extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.grey,
+        backgroundColor: Color.fromRGBO(38, 58, 150, 1),
         body: Padding(
           padding: const EdgeInsets.all(20),
           child: ListView(children: [
             Container(
               height: 60,
               decoration: BoxDecoration(
-                  color: Colors.blueAccent,
+                  color: Color.fromARGB(255, 150, 0, 183),
+                  gradient:
+                      LinearGradient(colors: [Colors.purple, Colors.blue]),
                   borderRadius: BorderRadius.circular(20)),
               child: const Center(
                 child: Text(
@@ -58,13 +60,14 @@ class UserWindow extends StatelessWidget {
                 ),
                 TextField(
                   controller: userNameController,
+                  cursorColor: Color.fromARGB(255, 13, 92, 156),
                   decoration: InputDecoration(
                       suffixIcon: const Icon(
                         Icons.person,
                         color: Colors.black,
                       ),
                       filled: true,
-                      fillColor: const Color.fromARGB(255, 229, 208, 19),
+                      fillColor: Color.fromARGB(255, 153, 4, 179),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                           borderSide: const BorderSide(color: Colors.black))),
@@ -81,13 +84,14 @@ class UserWindow extends StatelessWidget {
                 ),
                 TextField(
                     controller: universityNameController,
+                    cursorColor: Color.fromARGB(255, 13, 92, 156),
                     decoration: InputDecoration(
                         suffixIcon: const Icon(
                           Icons.school_rounded,
                           color: Colors.black,
                         ),
                         filled: true,
-                        fillColor: const Color.fromARGB(255, 229, 208, 19),
+                        fillColor: const Color.fromARGB(255, 153, 4, 179),
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                             borderSide: const BorderSide(color: Colors.black))))
@@ -134,7 +138,7 @@ class UserWindow extends StatelessWidget {
                                   onPressed: () {
                                     Navigator.of(context).pop();
                                   },
-                                  color: Colors.purple,
+                                  color: Colors.lightBlue,
                                   child: const Text(
                                     "okay",
                                     style: TextStyle(color: Colors.white),
@@ -179,7 +183,7 @@ class UserWindow extends StatelessWidget {
                     );
                   }
                 },
-                color: Colors.purple,
+                color: Color.fromARGB(255, 21, 83, 163),
                 child: const Text(
                   "Continue to the App",
                   style: TextStyle(

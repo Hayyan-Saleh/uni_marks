@@ -56,7 +56,7 @@ void main() {
                 ),
                 backgroundColor: Colors.purple,
               ),
-              backgroundColor: Colors.grey,
+              backgroundColor: Color.fromRGBO(30, 52, 147, 1),
               body: const Center(
                   child: CircularProgressIndicator(
                 color: Colors.pink,

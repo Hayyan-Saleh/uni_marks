@@ -27,7 +27,7 @@ class AddMarkWindow extends StatelessWidget {
           backgroundColor: Colors.purple,
         ),
         resizeToAvoidBottomInset: false,
-        backgroundColor: Colors.blueGrey,
+        backgroundColor: Color.fromRGBO(30, 52, 147, 1),
         body: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -125,6 +125,7 @@ class AddMarkWindow extends StatelessWidget {
                               } else {
                                 Marks marksList = marksListDataBase.getAt(0);
                                 marksList.marks.add(newMark);
+                                marksList.sort();
                                 marksListDataBase.put(0, marksList);
                               }
                               ScaffoldMessenger.of(context)

@@ -20,54 +20,72 @@ class MarksPage extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(20),
               child: Table(
-                border: TableBorder.all(color: Colors.black, width: 2),
+                border: TableBorder.all(
+                    color: Color.fromRGBO(255, 63, 249, 1), width: 1),
                 defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                 children: [
                   const TableRow(
                       decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 223, 201, 3)),
+                          color: Color.fromARGB(255, 210, 192, 0)),
                       children: [
                         TableCell(
                             verticalAlignment:
                                 TableCellVerticalAlignment.middle,
                             child: Padding(
                               padding: EdgeInsets.all(8.0),
-                              child: Text("Year"),
+                              child: Text(
+                                "Year",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold),
+                              ),
                             )),
                         TableCell(
                             verticalAlignment:
                                 TableCellVerticalAlignment.middle,
                             child: Padding(
                               padding: EdgeInsets.all(8.0),
-                              child: Text("Term"),
+                              child: Text("Term",
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold)),
                             )),
                         TableCell(
                             verticalAlignment:
                                 TableCellVerticalAlignment.middle,
                             child: Padding(
                               padding: EdgeInsets.all(8.0),
-                              child: Text("Name"),
+                              child: Text("Name",
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold)),
                             )),
                         TableCell(
                             verticalAlignment:
                                 TableCellVerticalAlignment.middle,
                             child: Padding(
                               padding: EdgeInsets.all(8.0),
-                              child: Text("Mark P"),
+                              child: Text("Mark P",
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold)),
                             )),
                         TableCell(
                             verticalAlignment:
                                 TableCellVerticalAlignment.middle,
                             child: Padding(
                               padding: EdgeInsets.all(8.0),
-                              child: Text("Mark T"),
+                              child: Text("Mark T",
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold)),
                             )),
                       ]),
                   ...List.generate(
                       marksListDataBase.get(0).marks.length,
                       (index) => TableRow(
                               decoration: const BoxDecoration(
-                                  color: Color.fromARGB(255, 188, 82, 191)),
+                                  color: Color.fromARGB(255, 59, 48, 186)),
                               children: [
                                 TableCell(
                                     verticalAlignment:

@@ -23,6 +23,6 @@ class Mark {
   int markPractical;
   @override
   String toString() {
-    return "name : $name , term : $term , year : $year \nmarkTheoritical : $markTheoritical , markPractical : $markPractical";
+    return "name : $name \ntotal mark : ${markPractical + markTheoritical}";
   }
 }
